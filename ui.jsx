@@ -107,7 +107,7 @@ function Stars({ value, size = 14, showNum = false, count }) {
 }
 
 /* ---------- price ---------- */
-const money = (n) => "$" + n.toLocaleString(undefined, { minimumFractionDigits: 0 });
+const money = (n) => "₵" + n.toLocaleString(undefined, { minimumFractionDigits: 0 });
 function Price({ value, was, size = 22 }) {
   return (
     <span style={{ display: "inline-flex", alignItems: "baseline", gap: 9 }}>

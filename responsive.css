@@ -97,6 +97,10 @@ select option { background: var(--bg-2); color: var(--text); }
   /* Center all homepage sections */
   section { text-align: center; }
   .eyebrow { justify-content: center; }
+  /* Center section headings (Recommended, Customer favorites, etc.) */
+  .section-head { flex-direction: column; align-items: center !important; text-align: center; }
+  .section-head h2 { text-align: center; }
+  .section-head .eyebrow { justify-content: center; }
 }
 
 @media (max-width: 420px) {

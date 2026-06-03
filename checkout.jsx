@@ -14,8 +14,8 @@ function Checkout({ items, byId, onQty, onRemove, nav, clearCart, user }) {
 
   const lines = items.map((it) => ({ ...it, p: byId(it.id) })).filter((l) => l.p);
   const subtotal = lines.reduce((s, l) => s + l.p.price * l.qty, 0);
-  const shipCost = ship.method === "express" ? (subtotal >= 200 ? 0 : 12) : 0;
-  const tax = Math.round(subtotal * 0.08);
+  const shipCost = ship.method === "express" ? (subtotal >= 3000 ? 0 : 180) : 0;
+  const tax = Math.round(subtotal * 0.125);
   const total = subtotal + shipCost + tax;
 
   const next = () => {
@@ -101,15 +101,15 @@ function Checkout({ items, byId, onQty, onRemove, nav, clearCart, user }) {
                 <div className="fade-up">
                   <h3 style={{ fontSize: 20, marginBottom: 18 }}>Shipping details</h3>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-                    <Field label="Full name" span value={ship.name} onChange={(v) => setShip({ ...ship, name: v })} placeholder="Alex Rivera" />
-                    <Field label="Email" span value={ship.email} onChange={(v) => setShip({ ...ship, email: v })} placeholder="alex@email.com" />
-                    <Field label="Address" span value={ship.address} onChange={(v) => setShip({ ...ship, address: v })} placeholder="221B Baker Street" />
-                    <Field label="City" value={ship.city} onChange={(v) => setShip({ ...ship, city: v })} placeholder="London" />
-                    <Field label="ZIP / Postal" value={ship.zip} onChange={(v) => setShip({ ...ship, zip: v })} placeholder="NW1 6XE" />
+                    <Field label="Full name" span value={ship.name} onChange={(v) => setShip({ ...ship, name: v })} placeholder="Kwame Mensah" />
+                    <Field label="Email" span value={ship.email} onChange={(v) => setShip({ ...ship, email: v })} placeholder="kwame@example.com" />
+                    <Field label="Street address" span value={ship.address} onChange={(v) => setShip({ ...ship, address: v })} placeholder="14 Liberation Road, Osu" />
+                    <Field label="City / Town" value={ship.city} onChange={(v) => setShip({ ...ship, city: v })} placeholder="Accra" />
+                    <Field label="Digital Address (GPS)" value={ship.zip} onChange={(v) => setShip({ ...ship, zip: v })} placeholder="GA-123-4567" />
                   </div>
                   <div style={{ marginTop: 20 }}>
                     <div className="text-3" style={{ fontSize: 13, marginBottom: 10 }}>Delivery method</div>
-                    {[["express", "Express", subtotal >= 200 ? "Free" : "$12", "2 business days"], ["standard", "Standard", "Free", "5–7 business days"]].map(([id, t, price, eta]) => (
+                    {[["express", "Express Delivery", subtotal >= 3000 ? "Free" : "₵180", "1–2 business days (Accra & Kumasi)"], ["standard", "Standard Delivery", "Free", "3–5 business days (nationwide)"]].map(([id, t, price, eta]) => (
                       <label key={id} style={{ display: "flex", alignItems: "center", gap: 12, padding: 14, borderRadius: 12, border: ship.method === id ? "1.5px solid var(--accent)" : "1px solid var(--border)", marginBottom: 10, cursor: "pointer", background: ship.method === id ? "rgba(var(--accent-rgb),.08)" : "transparent" }}>
                         <input type="radio" checked={ship.method === id} onChange={() => setShip({ ...ship, method: id })} style={{ accentColor: "var(--accent)" }} />
                         <div style={{ flex: 1 }}><div style={{ fontWeight: 600, fontSize: 14 }}>{t}</div><div className="text-3" style={{ fontSize: 12.5 }}>{eta}</div></div>
@@ -154,7 +154,7 @@ function Checkout({ items, byId, onQty, onRemove, nav, clearCart, user }) {
                 ))}
               </div>
               <div className="divider" style={{ margin: "4px 0 14px" }} />
-              {[["Subtotal", money(subtotal)], ["Shipping", shipCost === 0 ? "Free" : money(shipCost)], ["Tax (8%)", money(tax)]].map(([k, v]) => (
+              {[["Subtotal", money(subtotal)], ["Delivery", shipCost === 0 ? "Free" : money(shipCost)], ["VAT (12.5%)", money(tax)]].map(([k, v]) => (
                 <div key={k} style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginBottom: 9 }}><span className="text-3">{k}</span><span className="mono text-2">{v}</span></div>
               ))}
               <div className="divider" style={{ margin: "8px 0 14px" }} />

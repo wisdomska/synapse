@@ -18,7 +18,7 @@ const CATEGORIES = [
 
 const PRODUCTS = [
   {
-    id: "syn-aura-pro", name: "Aura Pro", category: "earbuds", price: 249, was: 299,
+    id: "syn-aura-pro", name: "Aura Pro", category: "earbuds", price: 3750, was: 4500,
     rating: 4.9, reviews: 1284, color: "Carbon", badge: "Best Seller",
     img: U("photo-1606220588913-b3aacb4d2f46"),
     blurb: "Adaptive ANC earbuds with spatial audio and a 38-hour case.",
@@ -27,7 +27,7 @@ const PRODUCTS = [
     colors: ["#1c1c20", "#e9e9ee", "#6b5bd6"],
   },
   {
-    id: "syn-aura-air", name: "Aura Air", category: "earbuds", price: 149,
+    id: "syn-aura-air", name: "Aura Air", category: "earbuds", price: 2250,
     rating: 4.7, reviews: 842, color: "Frost",
     img: U("photo-1590658268037-6bf12165a8df"),
     blurb: "Featherweight open-ear buds that disappear all day.",
@@ -36,7 +36,7 @@ const PRODUCTS = [
     colors: ["#e9e9ee", "#1c1c20"],
   },
   {
-    id: "syn-eclipse", name: "Eclipse Studio", category: "headphones", price: 379, was: 429,
+    id: "syn-eclipse", name: "Eclipse Studio", category: "headphones", price: 5700, was: 6450,
     rating: 4.9, reviews: 2103, color: "Graphite", badge: "Editor's Pick",
     img: "images/hero-headphones.jpg",
     blurb: "Over-ear reference headphones tuned for mastering and deep focus.",
@@ -45,7 +45,7 @@ const PRODUCTS = [
     colors: ["#26262c", "#0c0c10"],
   },
   {
-    id: "syn-halo", name: "Halo ANC", category: "headphones", price: 299,
+    id: "syn-halo", name: "Halo ANC", category: "headphones", price: 4500,
     rating: 4.6, reviews: 671, color: "Silver",
     img: U("photo-1583394838336-acd977736f90"),
     blurb: "Cloud-soft cushions and best-in-class noise cancellation.",
@@ -54,7 +54,7 @@ const PRODUCTS = [
     colors: ["#d7d7dc", "#26262c"],
   },
   {
-    id: "syn-pulse", name: "Pulse Mini", category: "speakers", price: 129, was: 159,
+    id: "syn-pulse", name: "Pulse Mini", category: "speakers", price: 1950, was: 2400,
     rating: 4.5, reviews: 503, color: "Slate", badge: "New",
     img: U("photo-1608043152269-423dbba4e7e1"),
     blurb: "Pocket speaker with room-filling 360° sound and 20h play.",
@@ -63,7 +63,7 @@ const PRODUCTS = [
     colors: ["#3a3a42", "#6b5bd6"],
   },
   {
-    id: "syn-monolith", name: "Monolith", category: "speakers", price: 449,
+    id: "syn-monolith", name: "Monolith", category: "speakers", price: 6750,
     rating: 4.8, reviews: 388, color: "Onyx",
     img: U("photo-1545454675-3531b543be5d"),
     blurb: "Architectural home speaker with adaptive room calibration.",
@@ -72,7 +72,7 @@ const PRODUCTS = [
     colors: ["#1c1c20", "#d7d7dc"],
   },
   {
-    id: "syn-vita", name: "Vita Watch", category: "wearables", price: 329, was: 379,
+    id: "syn-vita", name: "Vita Watch", category: "wearables", price: 4950, was: 5700,
     rating: 4.8, reviews: 1567, color: "Titanium", badge: "Best Seller",
     img: U("photo-1579586337278-3befd40fd17a"),
     blurb: "Health-first smartwatch with ECG, SpO2 and 10-day battery.",
@@ -81,7 +81,7 @@ const PRODUCTS = [
     colors: ["#9a9aa2", "#1c1c20", "#6b5bd6"],
   },
   {
-    id: "syn-band", name: "Trace Band", category: "wearables", price: 99,
+    id: "syn-band", name: "Trace Band", category: "wearables", price: 1500,
     rating: 4.4, reviews: 932, color: "Black",
     img: U("photo-1575311373937-040b8e1fd5b6"),
     blurb: "Minimal fitness band with always-on focus and stress tracking.",
@@ -90,7 +90,7 @@ const PRODUCTS = [
     colors: ["#0c0c10", "#6b5bd6"],
   },
   {
-    id: "syn-charge", name: "Field Charger", category: "accessories", price: 79,
+    id: "syn-charge", name: "Field Charger", category: "accessories", price: 1200,
     rating: 4.7, reviews: 410, color: "Graphite", badge: "New",
     img: U("photo-1615526675159-e248c3021d3f"),
     blurb: "3-in-1 magnetic charger that folds flat for travel.",
@@ -99,7 +99,7 @@ const PRODUCTS = [
     colors: ["#26262c", "#d7d7dc"],
   },
   {
-    id: "syn-case", name: "Vault Case", category: "accessories", price: 49,
+    id: "syn-case", name: "Vault Case", category: "accessories", price: 750,
     rating: 4.6, reviews: 277, color: "Stone",
     img: U("photo-1572569511254-d8f925fe2cbb"),
     blurb: "Crush-proof travel case with magnetic cable management.",
@@ -108,7 +108,7 @@ const PRODUCTS = [
     colors: ["#8a8a8f", "#1c1c20"],
   },
   {
-    id: "syn-sonic", name: "Sonic Buds", category: "earbuds", price: 189,
+    id: "syn-sonic", name: "Sonic Buds", category: "earbuds", price: 2850,
     rating: 4.6, reviews: 614, color: "Violet",
     img: U("photo-1598331668826-20cecc596b86"),
     blurb: "Bass-forward earbuds engineered for movement and grip.",
@@ -117,7 +117,7 @@ const PRODUCTS = [
     colors: ["#6b5bd6", "#1c1c20"],
   },
   {
-    id: "syn-clarity", name: "Clarity Buds", category: "earbuds", price: 219,
+    id: "syn-clarity", name: "Clarity Buds", category: "earbuds", price: 3300,
     rating: 4.8, reviews: 489, color: "Pearl", badge: "New",
     img: U("photo-1574920162043-b872873f19c8"),
     blurb: "Crystal call quality with 6-mic beamforming for meetings.",
@@ -126,7 +126,7 @@ const PRODUCTS = [
     colors: ["#ededf0", "#6b5bd6"],
   },
   {
-    id: "syn-orbit", name: "Orbit Open", category: "earbuds", price: 169,
+    id: "syn-orbit", name: "Orbit Open", category: "earbuds", price: 2550,
     rating: 4.5, reviews: 356, color: "Sand", badge: "New",
     img: U("photo-1606841837239-c5a1a4a07af7"),
     blurb: "Air-conduction buds that keep you aware on every run.",
@@ -135,7 +135,7 @@ const PRODUCTS = [
     colors: ["#d8cdb8", "#1c1c20"],
   },
   {
-    id: "syn-rift", name: "Rift Pro", category: "headphones", price: 459,
+    id: "syn-rift", name: "Rift Pro", category: "headphones", price: 6900,
     rating: 4.9, reviews: 1142, color: "Midnight", badge: "Editor's Pick",
     img: U("photo-1599669454699-248893623440"),
     blurb: "Flagship wireless cans with lossless 24-bit hi-res streaming.",
@@ -144,7 +144,7 @@ const PRODUCTS = [
     colors: ["#161620", "#6b5bd6"],
   },
   {
-    id: "syn-nimbus", name: "Nimbus Go", category: "speakers", price: 89,
+    id: "syn-nimbus", name: "Nimbus Go", category: "speakers", price: 1350,
     rating: 4.4, reviews: 627, color: "Coral",
     img: U("photo-1589003077984-894e133dabab"),
     blurb: "Clip-on speaker built for trails, showers and spontaneity.",
@@ -153,7 +153,7 @@ const PRODUCTS = [
     colors: ["#e2725b", "#1c1c20"],
   },
   {
-    id: "syn-aria", name: "Aria Home", category: "speakers", price: 239, was: 279,
+    id: "syn-aria", name: "Aria Home", category: "speakers", price: 3600, was: 4200,
     rating: 4.7, reviews: 441, color: "Linen",
     img: U("photo-1558537348-c0f8e733989d"),
     blurb: "Voice-ready smart speaker with warm, room-aware tuning.",
@@ -162,7 +162,7 @@ const PRODUCTS = [
     colors: ["#ece6da", "#3a3a42"],
   },
   {
-    id: "syn-pulse-watch", name: "Pulse Sport", category: "wearables", price: 199, was: 229,
+    id: "syn-pulse-watch", name: "Pulse Sport", category: "wearables", price: 3000, was: 3450,
     rating: 4.6, reviews: 718, color: "Lime", badge: "New",
     img: U("photo-1434493789847-2f02dc6ca35d"),
     blurb: "GPS sport watch with dual-band tracking and 18-day battery.",
@@ -171,7 +171,7 @@ const PRODUCTS = [
     colors: ["#c4f042", "#1c1c20"],
   },
   {
-    id: "syn-ring", name: "Aura Ring", category: "wearables", price: 279,
+    id: "syn-ring", name: "Aura Ring", category: "wearables", price: 4200,
     rating: 4.5, reviews: 503, color: "Graphite",
     img: U("photo-1611591437281-460bfbe1220a"),
     blurb: "Smart ring that reads sleep, recovery and readiness silently.",
@@ -180,7 +180,7 @@ const PRODUCTS = [
     colors: ["#3a3a42", "#d7d7dc"],
   },
   {
-    id: "syn-dock", name: "Tower Dock", category: "accessories", price: 119, was: 139,
+    id: "syn-dock", name: "Tower Dock", category: "accessories", price: 1800, was: 2100,
     rating: 4.7, reviews: 332, color: "Onyx", badge: "Best Seller",
     img: U("photo-1625948515291-69613efd103f"),
     blurb: "Vertical 4-device charging tower with a hidden cable spine.",
@@ -189,7 +189,7 @@ const PRODUCTS = [
     colors: ["#1c1c20", "#6b5bd6"],
   },
   {
-    id: "syn-tips", name: "Seal Tips Kit", category: "accessories", price: 29,
+    id: "syn-tips", name: "Seal Tips Kit", category: "accessories", price: 450,
     rating: 4.6, reviews: 894, color: "Assorted",
     img: U("photo-1608156639585-b3a032ef9689"),
     blurb: "Memory-foam ear tips in six sizes for a perfect, quiet seal.",
@@ -239,25 +239,25 @@ const INTENT = {
 const ORDERS = [
   {
     id: "SYN-48201", date: "May 28, 2026", status: "In transit", eta: "Arrives Jun 2",
-    total: 298, step: 2,
+    total: 4500, step: 2,
     items: [{ id: "syn-aura-pro", qty: 1 }, { id: "syn-case", qty: 1 }],
   },
   {
     id: "SYN-47788", date: "May 19, 2026", status: "Delivered", eta: "Delivered May 23",
-    total: 329, step: 3,
+    total: 4950, step: 3,
     items: [{ id: "syn-vita", qty: 1 }],
   },
   {
     id: "SYN-47120", date: "May 04, 2026", status: "Delivered", eta: "Delivered May 8",
-    total: 568, step: 3,
+    total: 7200, step: 3,
     items: [{ id: "syn-eclipse", qty: 1 }, { id: "syn-band", qty: 1 }],
   },
 ];
 
 const REVIEWS = [
-  { name: "Maya R.", avatar: "M", rating: 5, title: "Silence on demand", body: "The ANC genuinely erased my open-plan office. Battery outlasts my workday twice over.", date: "2 weeks ago", product: "Aura Pro" },
-  { name: "Daniel K.", avatar: "D", rating: 5, title: "Studio-grade", body: "Flat, honest response. I mixed an entire EP on these and translated perfectly to monitors.", date: "1 month ago", product: "Eclipse Studio" },
-  { name: "Priya S.", avatar: "P", rating: 4, title: "Lives on my wrist", body: "The 10-day battery claim is real. ECG flagged something my doctor confirmed. Worth it.", date: "3 weeks ago", product: "Vita Watch" },
+  { name: "Akosua M.", avatar: "A", rating: 5, title: "Silence on demand", body: "The ANC genuinely erased my open-plan office in Airport City. Battery outlasts my workday twice over.", date: "2 weeks ago", product: "Aura Pro" },
+  { name: "Kwame A.", avatar: "K", rating: 5, title: "Studio-grade", body: "Flat, honest response. I mixed an entire EP on these and it translated perfectly to monitors.", date: "1 month ago", product: "Eclipse Studio" },
+  { name: "Abena S.", avatar: "A", rating: 4, title: "Lives on my wrist", body: "The 10-day battery claim is real. Delivered right to my door in East Legon. Worth every pesewa.", date: "3 weeks ago", product: "Vita Watch" },
 ];
 
 const ADMIN_PRODUCTS = PRODUCTS.slice(0, 8).map((p, i) => ({
