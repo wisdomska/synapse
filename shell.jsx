@@ -81,18 +81,22 @@ function TopNav({ route, nav, cartCount, onCart, onSearch, onChat, theme, toggle
     const f = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", f); f(); return () => window.removeEventListener("scroll", f);
   }, []);
+  const close = () => setMenuOpen(false);
   return (
     <>
       <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 200, transition: "all .4s var(--ease-out)", padding: scrolled ? "10px 0" : "18px 0" }}>
         <div className="wrap">
           <nav className={scrolled ? "glass-2" : ""} style={{ display: "flex", alignItems: "center", gap: 18, height: 58, padding: "0 12px 0 20px", borderRadius: 999, border: scrolled ? "1px solid var(--border)" : "1px solid transparent", boxShadow: scrolled ? "var(--shadow)" : "none", transition: "all .4s var(--ease-out)" }}>
-            <button onClick={() => nav("home")} style={{ display: "flex", alignItems: "center", gap: 10, background: "none", border: "none", cursor: "pointer", color: "var(--text)" }}>
+
+            {/* Logo — hidden on mobile */}
+            <button className="nav-logo" onClick={() => nav("home")} style={{ display: "flex", alignItems: "center", gap: 10, background: "none", border: "none", cursor: "pointer", color: "var(--text)" }}>
               <span style={{ width: 30, height: 30, borderRadius: 9, background: "var(--accent)", display: "grid", placeItems: "center", boxShadow: "0 6px 18px -4px rgba(var(--accent-rgb),.7)" }}>
                 <Icon name="zap" size={17} fill="#fff" stroke={0} style={{ color: "#fff" }} />
               </span>
               <span style={{ fontFamily: '"Clash Display",sans-serif', fontWeight: 600, fontSize: 21, letterSpacing: "-.02em" }}>SYNAPSE</span>
             </button>
 
+            {/* Desktop nav links */}
             <div className="nav-links" style={{ display: "flex", gap: 4, marginLeft: 14 }}>
               {NAV_LINKS.map((l) => (
                 <button key={l.id} onClick={() => nav(l.id)} className={"nav-link" + (route === l.id ? " active" : "")}
@@ -103,7 +107,8 @@ function TopNav({ route, nav, cartCount, onCart, onSearch, onChat, theme, toggle
               ))}
             </div>
 
-            <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 6 }}>
+            {/* Desktop-only action icons */}
+            <div className="nav-actions" style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 6 }}>
               <button className="nav-icon" aria-label="Search" onClick={onSearch} style={iconBtn}><Icon name="search" size={19} /></button>
               <button className="nav-icon" aria-label="AI assistant" onClick={onChat} style={iconBtn}><Icon name="sparkle" size={19} /></button>
               <button aria-label="Toggle theme" onClick={toggleTheme} style={iconBtn}><Icon name={theme === "dark" ? "sun" : "moon"} size={19} /></button>
@@ -114,16 +119,58 @@ function TopNav({ route, nav, cartCount, onCart, onSearch, onChat, theme, toggle
               <button onClick={() => user ? onAccount() : nav("auth")} className="btn btn-ghost btn-sm signin-btn" style={{ marginLeft: 4 }}>
                 {user ? <><span style={{ width: 22, height: 22, borderRadius: 99, background: "var(--accent)", color: "#fff", display: "grid", placeItems: "center", fontSize: 11, fontWeight: 700 }}>{user.name[0]}</span>{user.name.split(" ")[0]}</> : <>Sign in</>}
               </button>
-              <button className="menu-btn" aria-label="Menu" onClick={() => setMenuOpen((v) => !v)} style={{ ...iconBtn, display: "none" }}><Icon name="menu" size={20} /></button>
+            </div>
+
+            {/* Mobile-only: search + cart + burger */}
+            <div className="mobile-nav-actions" style={{ marginLeft: "auto", display: "none", alignItems: "center", gap: 4 }}>
+              <button aria-label="Search" onClick={onSearch} style={iconBtn}><Icon name="search" size={19} /></button>
+              <button aria-label="Cart" onClick={onCart} style={{ ...iconBtn, position: "relative" }} className={cartBounce ? "bounce" : ""}>
+                <Icon name="cart" size={19} />
+                {cartCount > 0 && <span style={{ position: "absolute", top: 0, right: 0, minWidth: 18, height: 18, padding: "0 4px", borderRadius: 99, background: "var(--accent)", color: "#fff", fontSize: 11, fontWeight: 700, display: "grid", placeItems: "center" }} className="mono">{cartCount}</span>}
+              </button>
+              <button className="menu-btn" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((v) => !v)} style={iconBtn}>
+                <Icon name={menuOpen ? "x" : "menu"} size={22} />
+              </button>
             </div>
           </nav>
         </div>
       </header>
+
+      {/* Mobile full menu */}
       {menuOpen && (
-        <div className="glass-2 fade-in" style={{ position: "fixed", top: 78, left: 16, right: 16, zIndex: 199, borderRadius: 20, padding: 12, boxShadow: "var(--shadow)", border: "1px solid var(--border)" }}>
-          {NAV_LINKS.map((l) => (
-            <button key={l.id} onClick={() => { nav(l.id); setMenuOpen(false); }} style={{ display: "block", width: "100%", textAlign: "left", background: "none", border: "none", padding: "14px 16px", fontSize: 16, fontWeight: 500, color: route === l.id ? "var(--accent-bright)" : "var(--text)", cursor: "pointer", borderRadius: 12 }}>{l.label}</button>
-          ))}
+        <div className="glass-strong fade-in" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 199, display: "flex", flexDirection: "column", padding: "80px 20px 32px" }}>
+          {/* Logo inside menu */}
+          <button onClick={() => { nav("home"); close(); }} style={{ display: "flex", alignItems: "center", gap: 12, background: "none", border: "none", cursor: "pointer", color: "var(--text)", marginBottom: 36 }}>
+            <span style={{ width: 36, height: 36, borderRadius: 10, background: "var(--accent)", display: "grid", placeItems: "center", boxShadow: "0 6px 18px -4px rgba(var(--accent-rgb),.7)" }}>
+              <Icon name="zap" size={20} fill="#fff" stroke={0} />
+            </span>
+            <span style={{ fontFamily: '"Clash Display",sans-serif', fontWeight: 600, fontSize: 26, letterSpacing: "-.02em" }}>SYNAPSE</span>
+          </button>
+
+          {/* Nav links */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
+            {NAV_LINKS.map((l) => (
+              <button key={l.id} onClick={() => { nav(l.id); close(); }}
+                style={{ display: "flex", alignItems: "center", gap: 14, width: "100%", textAlign: "left", background: route === l.id ? "rgba(var(--accent-rgb),.12)" : "none", border: "none", padding: "16px 18px", fontSize: 20, fontWeight: 600, fontFamily: '"Clash Display",sans-serif', color: route === l.id ? "var(--accent-bright)" : "var(--text)", cursor: "pointer", borderRadius: 16, transition: "background .2s" }}>
+                {route === l.id && <span style={{ width: 6, height: 6, borderRadius: 99, background: "var(--accent-bright)", flexShrink: 0 }} />}
+                {l.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="divider" style={{ margin: "20px 0" }} />
+
+          {/* Action row — AI, theme, sign in */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+            <div style={{ display: "flex", gap: 4 }}>
+              <button aria-label="AI assistant" onClick={() => { onChat(); close(); }} style={iconBtn}><Icon name="sparkle" size={21} /></button>
+              <button aria-label="Toggle theme" onClick={toggleTheme} style={iconBtn}><Icon name={theme === "dark" ? "sun" : "moon"} size={21} /></button>
+            </div>
+            <button onClick={() => { user ? onAccount() : nav("auth"); close(); }} className="btn btn-primary" style={{ flex: 1, maxWidth: 200 }}>
+              {user ? <><span style={{ width: 22, height: 22, borderRadius: 99, background: "rgba(255,255,255,.25)", color: "#fff", display: "grid", placeItems: "center", fontSize: 11, fontWeight: 700 }}>{user.name[0]}</span>{user.name.split(" ")[0]}</> : <>Sign in</>}
+            </button>
+          </div>
         </div>
       )}
     </>
