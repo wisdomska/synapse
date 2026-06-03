@@ -44,6 +44,7 @@
   --glow: radial-gradient(60% 60% at 50% 40%, rgba(var(--accent-rgb), 0.32), transparent 70%);
   --pedestal: linear-gradient(180deg, #1a1a22 0%, #0c0c10 100%);
   --hero-grid: rgba(255, 255, 255, 0.04);
+  --menu-overlay: rgba(8, 8, 10, 0.92);
   color-scheme: dark;
 }
 
@@ -65,6 +66,7 @@
   --glow: radial-gradient(60% 60% at 50% 40%, rgba(var(--accent-rgb), 0.18), transparent 70%);
   --pedestal: linear-gradient(180deg, #ffffff 0%, #e6e6ec 100%);
   --hero-grid: rgba(0, 0, 0, 0.035);
+  --menu-overlay: rgba(244, 244, 246, 0.96);
   color-scheme: light;
 }
 
