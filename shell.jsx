@@ -142,7 +142,7 @@ function TopNav({ route, nav, cartCount, onCart, onSearch, onChat, theme, toggle
 
       {/* Mobile full menu */}
       {menuOpen && (
-        <div className="fade-in" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 199, display: "flex", flexDirection: "column", padding: "80px 20px 32px", background: "rgba(8,8,10,0.88)", backdropFilter: "blur(24px) saturate(160%)", WebkitBackdropFilter: "blur(24px) saturate(160%)" }}>
+        <div className="fade-in" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 199, display: "flex", flexDirection: "column", padding: "80px 20px 32px", background: "var(--menu-overlay)", backdropFilter: "blur(24px) saturate(160%)", WebkitBackdropFilter: "blur(24px) saturate(160%)" }}>
           {/* Nav links */}
           <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
             {NAV_LINKS.map((l) => (
