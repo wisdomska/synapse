@@ -140,7 +140,6 @@ function Hero({ variant, nav, onAdd, hero }) {
       <section style={{ paddingTop: 150, paddingBottom: 40 }}>
         <div className="wrap hero-split" style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 48, alignItems: "center" }}>
           <div className="fade-up hero-copy">
-            <span className="eyebrow" style={{ marginBottom: 22 }}>Your number 1 premium audio store</span>
             <h1 style={{ fontSize: "clamp(44px,6.4vw,84px)", lineHeight: 0.96, margin: "18px 0 0" }}><span style={{ color: "var(--accent-bright)" }}>Redefine</span><br />Your Sound<br />Experience</h1>
             <p className="text-2" style={{ fontSize: 18, lineHeight: 1.6, maxWidth: 520, margin: "24px 0 32px", textWrap: "balance" }}>{sub}</p>
             {ctas}
@@ -161,7 +160,6 @@ function Hero({ variant, nav, onAdd, hero }) {
       <section style={{ paddingTop: 130, paddingBottom: 30, position: "relative", textAlign: "center" }}>
         <div aria-hidden style={{ position: "absolute", top: "20%", left: 0, right: 0, textAlign: "center", fontFamily: '"Clash Display",sans-serif', fontWeight: 600, fontSize: "clamp(120px,26vw,360px)", lineHeight: 0.8, color: "transparent", WebkitTextStroke: "1px var(--border-strong)", opacity: 0.5, pointerEvents: "none", letterSpacing: "-.04em" }}>SYNAPSE</div>
         <div className="wrap" style={{ position: "relative" }}>
-          <span className="eyebrow fade-up" style={{ justifyContent: "center", marginBottom: 18 }}>Your number 1 premium audio store</span>
           <h1 className="fade-up" style={{ fontSize: "clamp(48px,9vw,140px)", lineHeight: 0.9, letterSpacing: "-.03em" }}>Sound<br />Engineered</h1>
           <p className="text-2 fade-up" style={{ fontSize: 18, maxWidth: 520, margin: "26px auto 30px", lineHeight: 1.6 }}>{sub}</p>
           {ctas}
@@ -175,7 +173,6 @@ function Hero({ variant, nav, onAdd, hero }) {
   return (
     <section style={{ paddingTop: 138, paddingBottom: 30, textAlign: "center", position: "relative" }}>
       <div className="wrap" style={{ position: "relative" }}>
-        <span className="eyebrow fade-up" style={{ justifyContent: "center", marginBottom: 22 }}>Your number 1 premium audio store</span>
         <h1 className="fade-up" style={{ fontSize: "clamp(46px,8.4vw,116px)", lineHeight: 0.92, letterSpacing: "-.03em", margin: "0 auto", maxWidth: 1000 }}>
           <span style={{ color: "var(--accent-bright)" }}>Redefine</span><br />Your Sound<br />Experience
         </h1>
