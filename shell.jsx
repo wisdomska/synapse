@@ -143,14 +143,6 @@ function TopNav({ route, nav, cartCount, onCart, onSearch, onChat, theme, toggle
       {/* Mobile full menu */}
       {menuOpen && (
         <div className="fade-in" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 199, display: "flex", flexDirection: "column", padding: "80px 20px 32px", background: "rgba(8,8,10,0.88)", backdropFilter: "blur(24px) saturate(160%)", WebkitBackdropFilter: "blur(24px) saturate(160%)" }}>
-          {/* Logo inside menu */}
-          <button onClick={() => { nav("home"); close(); }} style={{ display: "flex", alignItems: "center", gap: 12, background: "none", border: "none", cursor: "pointer", color: "var(--text)", marginBottom: 36 }}>
-            <span style={{ width: 36, height: 36, borderRadius: 10, background: "var(--accent)", display: "grid", placeItems: "center", boxShadow: "0 6px 18px -4px rgba(var(--accent-rgb),.7)" }}>
-              <Icon name="zap" size={20} fill="#fff" stroke={0} />
-            </span>
-            <span style={{ fontFamily: '"Clash Display",sans-serif', fontWeight: 600, fontSize: 26, letterSpacing: "-.02em" }}>SYNAPSE</span>
-          </button>
-
           {/* Nav links */}
           <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
             {NAV_LINKS.map((l) => (
