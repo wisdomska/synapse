@@ -270,7 +270,7 @@ function Home({ nav, onOpen, onAdd, favs, onFav, setCat, openChat }) {
       {/* testimonials */}
       <section className="wrap" style={{ marginTop: 90 }}>
         <SectionHead eyebrow="What people say" title="Trusted by 50,000+ listeners" />
-        <div className="rec-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }}>
+        <div className="rec-grid testimonials-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }}>
           {REVIEWS.map((r, i) => (
             <div key={r.name} className="glass glass-hi reveal" style={{ padding: 26, borderRadius: "var(--r-lg)", transitionDelay: i * 70 + "ms" }}>
               <Stars value={r.rating} size={15} />
