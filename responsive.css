@@ -75,18 +75,22 @@ select option { background: var(--bg-2); color: var(--text); }
   .pdp-grid > div:first-child { position: static !important; }
   .hero-split { gap: 32px !important; }
   .hero-split .scale-in { height: 440px !important; }
-  /* Center all landing page copy */
-  .hero-copy { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  /* Center hero copy — explicit on every child so inline styles don't win */
+  .hero-copy { text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+  .hero-copy h1, .hero-copy h2, .hero-copy h3, .hero-copy p { text-align: center !important; }
+  .hero-copy > * { width: 100%; }
   .hero-copy > p { margin-left: auto !important; margin-right: auto !important; }
   .hero-copy > div { justify-content: center !important; }
-  .hero-copy .hero-stats { justify-content: center; }
+  .hero-copy .hero-stats { justify-content: center !important; }
 }
 
 @media (max-width: 620px) {
   .wrap { padding: 0 14px; }
+  /* Hero heading: smaller so centering is visible and nothing overflows */
+  .hero-copy h1 { font-size: clamp(30px, 8.5vw, 42px) !important; text-align: center !important; }
   /* Product cards: always 2 columns */
   .rec-grid, .catalog-grid, .value-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-  /* Testimonials: always 1 column (overrides rec-grid 2-col rule) */
+  /* Testimonials: always 1 column */
   .rec-grid.testimonials-grid { grid-template-columns: 1fr !important; }
   .cat-rail, .admin-kpi { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
   .footer-grid { grid-template-columns: 1fr !important; }
@@ -96,18 +100,30 @@ select option { background: var(--bg-2); color: var(--text); }
   .carousel-item { width: min(76vw, 320px); }
   .hero-stats { gap: 20px !important; flex-wrap: wrap; justify-content: center; }
   .hero-split .scale-in { height: 380px !important; }
-  /* Center all homepage sections */
-  section { text-align: center; }
-  .eyebrow { justify-content: center; }
-  /* Center section headings (Recommended, Customer favorites, etc.) */
-  .section-head { flex-direction: column; align-items: center !important; text-align: center; }
-  .section-head h2 { text-align: center; }
-  .section-head .eyebrow { justify-content: center; }
-  /* Center footer content */
-  .footer-grid > div { text-align: center; align-items: center; display: flex; flex-direction: column; }
-  .footer-grid h4 { text-align: center; }
+
+  /* ---- Global mobile centering ---- */
+  /* All section text */
+  section { text-align: center !important; }
+  section h1, section h2, section h3, section p { text-align: center !important; }
+  .eyebrow { justify-content: center !important; }
+
+  /* Category rail tiles: override inline textAlign:"left" */
+  .cat-rail button { text-align: center !important; align-items: center !important; }
+  .cat-rail button > span:first-child { margin: 0 auto 18px !important; }
+
+  /* Value / benefit cards */
+  .value-grid > * { text-align: center !important; align-items: center !important; display: flex; flex-direction: column; }
+
+  /* Section headings row */
+  .section-head { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+  .section-head h2 { text-align: center !important; }
+  .section-head .eyebrow { justify-content: center !important; }
+
+  /* Footer */
+  .footer-grid > div { text-align: center !important; align-items: center !important; display: flex; flex-direction: column; }
+  .footer-grid h4 { text-align: center !important; }
   .footer-grid button { text-align: center !important; }
-  footer .divider ~ div { justify-content: center; flex-direction: column; align-items: center; gap: 8px; }
+  footer .divider ~ div { justify-content: center !important; flex-direction: column; align-items: center; gap: 8px; }
 }
 
 @media (max-width: 420px) {
