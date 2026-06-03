@@ -128,8 +128,12 @@ function TopNav({ route, nav, cartCount, onCart, onSearch, onChat, theme, toggle
                 <Icon name="cart" size={19} />
                 {cartCount > 0 && <span style={{ position: "absolute", top: 0, right: 0, minWidth: 18, height: 18, padding: "0 4px", borderRadius: 99, background: "var(--accent)", color: "#fff", fontSize: 11, fontWeight: 700, display: "grid", placeItems: "center" }} className="mono">{cartCount}</span>}
               </button>
-              <button className="menu-btn" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((v) => !v)} style={iconBtn}>
-                <Icon name={menuOpen ? "x" : "menu"} size={22} />
+              {/* Animated burger → X */}
+              <button className="menu-btn" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((v) => !v)}
+                style={{ ...iconBtn, position: "relative" }}>
+                <span style={{ position: "absolute", width: 20, height: 2, background: "currentColor", borderRadius: 2, transition: "transform 0.35s var(--ease-spring), opacity 0.25s", transform: menuOpen ? "rotate(45deg) translate(0,0)" : "translateY(-6px)", opacity: menuOpen ? 1 : 1 }} />
+                <span style={{ position: "absolute", width: 20, height: 2, background: "currentColor", borderRadius: 2, transition: "opacity 0.2s", opacity: menuOpen ? 0 : 1 }} />
+                <span style={{ position: "absolute", width: 20, height: 2, background: "currentColor", borderRadius: 2, transition: "transform 0.35s var(--ease-spring), opacity 0.25s", transform: menuOpen ? "rotate(-45deg) translate(0,0)" : "translateY(6px)", opacity: menuOpen ? 1 : 1 }} />
               </button>
             </div>
           </nav>
@@ -138,7 +142,7 @@ function TopNav({ route, nav, cartCount, onCart, onSearch, onChat, theme, toggle
 
       {/* Mobile full menu */}
       {menuOpen && (
-        <div className="glass-strong fade-in" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 199, display: "flex", flexDirection: "column", padding: "80px 20px 32px" }}>
+        <div className="fade-in" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 199, display: "flex", flexDirection: "column", padding: "80px 20px 32px", background: "rgba(8,8,10,0.88)", backdropFilter: "blur(24px) saturate(160%)", WebkitBackdropFilter: "blur(24px) saturate(160%)" }}>
           {/* Logo inside menu */}
           <button onClick={() => { nav("home"); close(); }} style={{ display: "flex", alignItems: "center", gap: 12, background: "none", border: "none", cursor: "pointer", color: "var(--text)", marginBottom: 36 }}>
             <span style={{ width: 36, height: 36, borderRadius: 10, background: "var(--accent)", display: "grid", placeItems: "center", boxShadow: "0 6px 18px -4px rgba(var(--accent-rgb),.7)" }}>
